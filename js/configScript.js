@@ -1,4 +1,3 @@
-
 function getConfig(){
     $.ajax({
       url: 'php/getConfig.php',
@@ -9,10 +8,8 @@ function getConfig(){
 }
 
 function loadCurrentSettings(data){
-
-    data = JSON.parse(data);
- 
-    
+    // retrieve saved config 
+    data = JSON.parse(data); 
     window.config = data;
     
     $("#name").val(data.name);

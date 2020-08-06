@@ -1,8 +1,8 @@
 {
     "name": "Sleiman",
     "city_name": "Montreal",
-    "nyt_api_key": "7UP2SBJgcBERwN72cuKscL3DQX3CeBik",
-    "openweather_api_key": "ba24c6018ddd72041749018d0c1b1ef8",
+    "nyt_api_key": "",
+    "openweather_api_key": "",
     "subjects": [
         "politics",
         "sports"
