@@ -1,1 +1,10 @@
-{"name":"Shawnee","zip":"63141","subjects":["sports","travel"],"id":1461768553468}
+{
+    "name": "Sleiman",
+    "zip": "H2V0A2",
+    "subjects": [
+        "sports",
+        "travel"
+    ],
+    "id": 1461768553468,
+    "nyt_api_key": "7UP2SBJgcBERwN72cuKscL3DQX3CeBik"
+}

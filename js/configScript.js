@@ -26,7 +26,8 @@ function iterate(){
     }
     else{
        var config = JSON.stringify(config);
-       console.log(config);
+
+       console.log(config);
      $.ajax({
           url: 'php/config.php',
           dataType: "text",
@@ -60,7 +61,7 @@ function make_city_select(city_data)
 
 function get_city_mapping()
 {
-    $.get("/smart_mirror/city.list.us.json")
+    $.get("/smartMirror/city.list.us.json")
         .done(function(data) {
             make_city_select(data);
         })

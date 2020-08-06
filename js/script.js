@@ -19,6 +19,7 @@ function setConfigs(data){
     zip = data.zip;
     city_id = data.city_id;
     subjects = data.subjects;
+    nyt_api_key = data.nyt_api_key;
     
     //function calls
     clearTimeout(window.weatherTimeoutToday);
@@ -38,7 +39,7 @@ function setConfigs(data){
     else{
         $(".newsFeed").show();
         $(".feedLabel").show();
-        getNews(subjects);
+        getNews(subjects,nyt_api_key);
     }
     
     
@@ -94,7 +95,7 @@ setInterval(updateClock, 1000); //recurring call
 function getNews(){
     $(subjects).each(function (i,v){
         $.ajax({
-              url: 'http://api.nytimes.com/svc/topstories/v1/'+v+'.json?api-key=73f211d6857eb89a7652ba5cbcdcf301:2:74994874',
+              url: 'http://api.nytimes.com/svc/topstories/v2/'+v+'.json?api-key='+nyt_api_key,
               success: organizeNews,
               dataType: "text",
               method: "GET"
