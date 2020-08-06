@@ -1,13 +1,41 @@
 
+function getConfig(){
+    $.ajax({
+      url: 'php/getConfig.php',
+      success: loadCurrentSettings,
+      dataType: "text",
+      method: "GET"
+    });
+}
+
+function loadCurrentSettings(data){
+
+    data = JSON.parse(data);
+ 
+    
+    window.config = data;
+    
+    $("#name").val(data.name);
+    $("#city_name").val(data.city_name);
+    $("#nyt_api_key").val(data.nyt_api_key);
+    $("#openweather_api_key").val(data.openweather_api_key);
+
+    $(data.subjects).each(function (i,v){ 
+        $( "#"+v ).prop( "checked", true );
+    });
+    
+}
 
 function iterate(){
     //create config json object
     var config = {}
     config.name =  $("#name").val();
-    config.zip = $("#zip").val();
+    config.city_name = $("#city_name").val();
     config.city_id = $("#city_select").val();
+    config.nyt_api_key = $("#nyt_api_key").val();
+    config.openweather_api_key = $("#openweather_api_key").val();
     config.subjects=[];
-    config.id = $.now();
+
     if($('#none').prop('checked')){
         config.subjects.push("noNews");
     }
@@ -39,41 +67,8 @@ function iterate(){
     
 }
 
-
-function make_city_select(city_data)
-{
-    console.log('hello');
-    var html = '<select id="city_select" >';
-    
-    for(var i = 0; i < 300; i++)
-    {
-        var city = city_data[i];
-        if(city.country == "US")
-        {
-            html += '<option value="'+ city['_id'] +'">'+ city.name + '</option>';
-        }
-    }
-    
-    html += '</select>';
-    $('#city_select_wrapper').html(html);
-}
-
-
-function get_city_mapping()
-{
-    $.get("/smartMirror/city.list.us.json")
-        .done(function(data) {
-            make_city_select(data);
-        })
-        .fail(function(data, status) {
-            console.log("Failed to make get request: "+status+" "+data);
-        });
-}
-
-
 $(document).ready(function() {
-    get_city_mapping();
-    
+    getConfig();
     $('#submitConfigs').click(function(){
         iterate();
         });
