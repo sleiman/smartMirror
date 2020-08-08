@@ -43,19 +43,19 @@ body{
 .greetingText{
 	text-align: center;
 	color: white;
-    font-size:-webkit-xxx-large;
+    font-size:200%;
 }
 
 .clock
 {
-	padding-top: 25px 
+	/*padding-top: 25px */
 }
 
 .clock_display{
 	padding-right:20px;
 	text-align:right;
 	color: white;
-	font-size: 400%;
+	font-size: 200%;
 }
 .weather-wrapper{
 	padding-right:20px;
@@ -66,7 +66,7 @@ body{
     
 }
 .weather-today{
-	font-size:200%;
+	font-size:100%;
 }
 .weather{
 	font-size:x-large;
