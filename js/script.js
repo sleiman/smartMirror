@@ -97,7 +97,7 @@ setInterval(updateClock, 1000); //recurring call
 function getNews(){
     $(subjects).each(function (i,v){
         $.ajax({
-              url: 'http://api.nytimes.com/svc/topstories/v2/'+v+'.json?api-key='+nyt_api_key,
+              url: 'https://api.nytimes.com/svc/topstories/v2/'+v+'.json?api-key='+nyt_api_key,
               success: organizeNews,
               dataType: "text",
               method: "GET"
@@ -160,7 +160,7 @@ function autoScroll(){
 
 function updateWeather(){
 	$.ajax({
-	  url: 'http://api.openweathermap.org/data/2.5/weather?q='+city_name+'&appid='+openweather_api_key+'&units=metric',
+	  url: 'https://api.openweathermap.org/data/2.5/weather?q='+city_name+'&appid='+openweather_api_key+'&units=metric',
 	  success: displayWeather,
 	  dataType: "text",
 	  method: "GET"
@@ -171,7 +171,7 @@ function updateWeather(){
 
 function updateOpenWeatherToday(){
     $.ajax({
-	  url: 'http://api.openweathermap.org/data/2.5/weather?q='+city_name+'&appid='+openweather_api_key+'&units=metric',
+	  url: 'https://api.openweathermap.org/data/2.5/weather?q='+city_name+'&appid='+openweather_api_key+'&units=metric',
 	  success: displayOpenWeatherToday,
 	  dataType: "text",
 	  method: "GET"
@@ -187,12 +187,12 @@ function displayOpenWeatherToday(weather_data){
         $('.temp_location').html(weather_data.name);
 		$('.temp_max').html("High: "+weather_data.main.temp_max+"&#x2109");
 		$('.temp_min').html("Low: "+weather_data.main.temp_min+"&#x2109");
-        $('.weatherIcon').html('<img class = "icon" src="http://openweathermap.org/img/w/'+weather_data.weather[0].icon+'.png">');  
+        $('.weatherIcon').html('<img class = "icon" src="https://openweathermap.org/img/w/'+weather_data.weather[0].icon+'.png">');  
 	}
 
 function updateOpenWeatherWeek(){
     $.ajax({
-	  url: 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+city_name+'&appid='+openweather_api_key,
+	  url: 'https://api.openweathermap.org/data/2.5/forecast/daily?q='+city_name+'&appid='+openweather_api_key,
 	  success: displayOpenWeatherWeek,
 	  dataType: "text",
 	  method: "GET"
@@ -228,11 +228,11 @@ function displayOpenWeatherWeek(data){
         $('.day3Label').html(weekArray[weekIndex[2]]);
         $('.day4Label').html(weekArray[weekIndex[3]]);
         $('.day5Label').html(weekArray[weekIndex[4]]);
-        $('.weatherIcon1').html('<img class = "smaller" src="http://openweathermap.org/img/w/' +data.list[1].weather[0].icon+ '.png">');
-        $('.weatherIcon2').html('<img class = "smaller" src="http://openweathermap.org/img/w/' +data.list[2].weather[0].icon+ '.png">');
-        $('.weatherIcon3').html('<img class = "smaller" src="http://openweathermap.org/img/w/' +data.list[3].weather[0].icon+ '.png">');
-        $('.weatherIcon4').html('<img class = "smaller" src="http://openweathermap.org/img/w/' +data.list[4].weather[0].icon+ '.png">');
-        $('.weatherIcon5').html('<img class = "smaller" src="http://openweathermap.org/img/w/' +data.list[5].weather[0].icon+ '.png">');
+        $('.weatherIcon1').html('<img class = "smaller" src="https://openweathermap.org/img/w/' +data.list[1].weather[0].icon+ '.png">');
+        $('.weatherIcon2').html('<img class = "smaller" src="https://openweathermap.org/img/w/' +data.list[2].weather[0].icon+ '.png">');
+        $('.weatherIcon3').html('<img class = "smaller" src="https://openweathermap.org/img/w/' +data.list[3].weather[0].icon+ '.png">');
+        $('.weatherIcon4').html('<img class = "smaller" src="https://openweathermap.org/img/w/' +data.list[4].weather[0].icon+ '.png">');
+        $('.weatherIcon5').html('<img class = "smaller" src="https://openweathermap.org/img/w/' +data.list[5].weather[0].icon+ '.png">');
         $('.day1').html(data.list[1].temp.day+"&#x2109");
         $('.day2').html(data.list[2].temp.day+"&#x2109");
         $('.day3').html(data.list[3].temp.day+"&#x2109");
